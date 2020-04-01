@@ -33,13 +33,13 @@ def chunk_GetCctvDataOfArea(lst):
         yield chonk
       yield_val = list()
 
-def download_cam(cctvid, filename=False):
+def download_cam(cctv_id, filename=False):
   if filename is False:
     filename = slugify(cctv_id) + ".jpg"
 
   r = requests.post(
     'http://its.txdot.gov/ITS_WEB/FrontEnd/svc/DataRequestWebService.svc/GetCctvContent', 
-    json = { "arguments": cctvid + ",1" }
+    json = { "arguments": cctv_id + ",1" }
   )
 
   response = r.text.split(",")
